@@ -2,24 +2,27 @@
    :maxdepth: 0
    :hidden:
 
-   doc/wakeup
-   doc/drive
-
+   self
+   docs/parts/parts
+   docs/assemble/assemble
+   docs/wakeup/wakeup
+   docs/drive/drive
+   docs/line_sensor/line_sensor
+   docs/what_if/what_if
+   docs/loops_functions/loops_functions
+   docs/follow_line_1_sensor/follow_line_1_sensor
 
 Welkom
 ======
 
 Leuk dat je met de Mirte robot aan de slag gaat. Deze workshops zijn bedoeld voor de middelbare
-school. Bij elke workshop ga je aan de slag met de robot en zal je een ssntal dinegen leren.
+school. Bij elke workshop ga je aan de slag met de robot en zal je een aantal dingen leren.
 Na het volgen van alle workshops heb je een robot in elkaar gezet en kan deze een lijn volgen.
 Als je het leuk vindt kan je daarna nog je robot verbeteren en meedoen aan de wedstrijd
 `RoboCupJunior <https://www.robocupjunior.nl/redden-basis>`_.
 
-.. panels::
-   :column: col-lg-12 p-2
-
-   .. video:: /_static/line_follow.mp4
-      :width: 100%
+.. video:: /_static/media/line_follow.mp4
+   :width: 500
 
 Elke workshop heeft zijn eigen thema:
 
