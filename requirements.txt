@@ -1,6 +1,4 @@
-sphinx
-sphinx-book-theme
-sphinx-design
-sphinxcontrib-video
-
-wheel
+sphinx==7.1.2
+sphinx-book-theme==1.0.1
+sphinx-design==0.5.0
+sphinxcontrib-video==0.2.1
