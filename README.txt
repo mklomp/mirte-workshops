@@ -6,3 +6,6 @@ $ source docs-env/bin/activate
 
 
 $ firefox _build/html/index.html
+
+
+requires python3.10 for sphinx==7.4.7
