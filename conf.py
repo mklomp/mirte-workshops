@@ -93,3 +93,9 @@ html_theme_options = {
     "use_fullscreen_button": False,
     "extra_footer": "&copy; 2024, Martin Klomp, <a href='https://tudelftroboticsinstitute.nl/'>TU Delft Robotics Institute</a>",
 }
+
+
+linkcheck_ignore = [r'^http://$', r'^http://mirte.local.*', r'.*localhost.*', r'.*192.168.4.*']
+linkcheck_anchors_ignore_for_url = [
+   
+]
