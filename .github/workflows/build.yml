@@ -48,7 +48,7 @@ jobs:
     # Add a dependency to the build job
     needs: build
     # only build if on arendjan/... and mirte-master or on any other user and main
-    if: github.ref == 'refs/heads/main' != (github.ref == 'refs/heads/mirte-master' && github.repository_owner == 'arendjan')
+    if: github.ref == 'refs/heads/main' || true
     permissions:
       pages: write      # to deploy to Pages
       id-token: write   # to verify the deployment originates from an appropriate source
