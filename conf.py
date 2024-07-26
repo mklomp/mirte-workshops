@@ -59,7 +59,7 @@ gettext_compact = False
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-
+author = 'Martin Klomp'
 html_theme = 'sphinx_book_theme'
 html_title = "Mirte Workshops"
 
