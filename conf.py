@@ -13,12 +13,24 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import glob, subprocess, sys
+import glob, subprocess, sys, time
 
 # -- Project information -----------------------------------------------------
 
 project = 'Mirte Workshops'
 #copyright = '2023, Martin Klomp, TU Delft Robotics Institute'
+
+lang = 'nl'  # default language
+if 'lang_en' in tags.tags.keys():
+    print("engels!!!!")
+    lang = 'en'
+
+# For multi-lang, copy article.{lang}.rst to article.rst
+articles = ['assemble']
+for article in articles:
+    with open(f'docs/{article}/{article}.rst', 'w') as f:
+        f.write(open(f'docs/{article}/{article}.{lang}.rst').read())
+
 
 
 # -- General configuration ---------------------------------------------------
@@ -38,11 +50,10 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_modules', 'docs-env']
 
 
 # intl
-locale_dirs = glob.glob('./docs/*/_locale/')
-locale_dirs.append('locale/')
-print(locale_dirs)
+# locale_dirs = glob.glob('./docs/*/_locale/')
+# locale_dirs.append('locale/')
+# print(locale_dirs)
 gettext_compact = False
-
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -91,7 +102,7 @@ html_theme_options = {
     "use_issues_button": True,
     "use_edit_page_button": True,
     "use_fullscreen_button": False,
-    "extra_footer": "&copy; 2024, Martin Klomp, <a href='https://tudelftroboticsinstitute.nl/'>TU Delft Robotics Institute</a>",
+    "extra_footer": f"&copy; 2024, Martin Klomp {time.time()}, <a href='https://tudelftroboticsinstitute.nl/'>TU Delft Robotics Institute</a>",
 }
 
 
