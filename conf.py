@@ -13,8 +13,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import glob
-
+import glob, subprocess, sys
 
 # -- Project information -----------------------------------------------------
 
@@ -58,9 +57,6 @@ html_title = "Mirte Workshops"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-# For now all videos need to be placed in /_static due to this issue:
-# https://github.com/sphinx-contrib/video/issues/33
-
 html_js_files = ['js/custom.js']
 
 html_css_files = [
@@ -73,15 +69,27 @@ html_css_files = [
 
 ## For Book Theme
 html_context = {
-   "mode": "darky"
+   "mode": "darky",
+   "github_repo": "mirte-workshops",
+   "github_user": "mirte-robot"
 }
+
+# Try to update from git
+try:
+    output = subprocess.check_output(["git ls-remote --get-url origin"], shell=True).decode(sys.stdout.encoding)
+    parts = str(output).split(".com/")[1].split("/")
+    html_context["github_repo"] = parts[1].split(".git")[0]
+    html_context["github_user"] = parts[0]
+    html_context['github_version'] = str(subprocess.check_output(["git rev-parse --abbrev-ref HEAD"], shell=True).decode(sys.stdout.encoding)).strip() + "/"
+except Exception as e:
+    print("Could not get git information: " + str(e))
 
 html_theme_options = {
     "use_download_button": False,
-    "repository_url": "https://github.com/mirte-robot/mirte-workshops",
+    "repository_url": f'https://github.com/{html_context["github_user"]}/{html_context["github_repo"]}',
     "use_repository_button": True,
     "use_issues_button": True,
     "use_edit_page_button": True,
     "use_fullscreen_button": False,
-    "extra_footer": "&copy; 2023, Martin Klomp, <a href='https://tudelftroboticsinstitute.nl/'>TU Delft Robotics Institute</a>",
+    "extra_footer": "&copy; 2024, Martin Klomp, <a href='https://tudelftroboticsinstitute.nl/'>TU Delft Robotics Institute</a>",
 }
