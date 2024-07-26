@@ -20,7 +20,7 @@ jobs:
           python3 -m venv docs-env
           . docs-env/bin/activate
           pip install -r requirements.txt
-          make html
+          make build_lang
           cd _build/html
           zip -r ../../site.zip .
           cd ../../
