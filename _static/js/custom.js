@@ -1,3 +1,12 @@
+
+const custom_prefix = '#step';
+
+// this will cut up a single long page into multiple 'subpages' that can be navigated through
+// sphinx will give them the hash #{text} where text is the title of the section or #id{number} if the title is a number.
+// this script will find the index of that section and convert it to #step{number} and show that section.
+
+
+
 window.onload = (event) => {
   // Fix for the scrollbar issue in books theme:
   // https://github.com/executablebooks/sphinx-book-theme/issues/732
@@ -8,18 +17,25 @@ window.onload = (event) => {
   // https://github.com/executablebooks/sphinx-book-theme/issues/797
 //  let header = document.getElementsByClassName('article-header-buttons')[0];
 //  header.append("<div>L</div>");
+  update_from_hash();
+};
 
-  // Get all sections in the page
-  let sections = document.getElementsByTagName('section');
-
+function update_from_hash(){
   // Get the id of the active section
   let id = 1;
-  let split_url = window.location.href.split("#")
-  if (split_url[1]){
-    id = split_url[1].substr(2);
+  if(window.location.hash){
+    const hash = window.location.hash;
+    if(hash.startsWith(custom_prefix)){
+    id = parseInt(window.location.hash.substring(custom_prefix.length)); // remove #step prefix
+    } else {
+      id = hash.substring(1); // when the hash is not the number.
+    }
   }
-
-  showFooter(id, sections);
+  show(id);
+};
+window.onhashchange = function(event)
+{
+  update_from_hash();
 };
 
 
@@ -56,8 +72,16 @@ function show(id){
   for (i = 1; i < sections.length; ++i){
     sections[i].style.display = 'none';
   }
+  if(typeof id === 'string'){ // when the hash is not the number. This will convert it to the num of the section.
+    for (i = 1; i < sections.length; ++i){
+      if(sections[i].id === id){
+        id = i;
+        break;
+      }
+    }
+  }
   sections[id].style.display = 'block';
   showFooter(id, sections);
-
+  window.location.hash = custom_prefix + id;
 }
 

@@ -314,7 +314,10 @@ goed te volgen, heb je aan het eind een Mirte robot.
    :width: 500
 
 
+Klaar!
+------
 
+Je hebt nu de Mirte robot in elkaar gezet. Als je de robot nu aanzet
 
 
 
