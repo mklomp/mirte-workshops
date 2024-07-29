@@ -15,8 +15,7 @@ help:
 .PHONY: help Makefile
 .PHONY: build_en
 build_lang:
-	$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)/html/en" $(ALLSPHINXOPTS) -t lang_en
-	$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)/html/" $(ALLSPHINXOPTS) -t lang_nl
+	python scripts/build.py
 	python scripts/dedup.py
   
 # Catch-all target: route all unknown targets to Sphinx using the new

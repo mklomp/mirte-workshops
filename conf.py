@@ -35,9 +35,13 @@ for lang_opt in articles_settings["languages"]:
 
 
 for article in articles_settings["articles"]:
-    with open(f'docs/{article}/{article}.rst', 'w') as f:
-        f.write(open(f'docs/{article}/{article}.{lang}.rst').read())
-
+    try:
+        with open(f'docs/{article}/{article}.{lang}.rst') as f_lang:
+            with open(f'docs/{article}/{article}.rst', 'w') as f_dest:
+                f_dest.write(f_lang.read())
+    except Exception as e:
+        print(e)
+        print("missing article file for " + article)
 
 
 # -- General configuration ---------------------------------------------------
