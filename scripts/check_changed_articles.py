@@ -21,3 +21,4 @@ for article in data['articles']:
 
     if any(are_changed) and not all(are_changed):
         print(f'::warning title=::All files for article {article} should be changed')
+print("done")
