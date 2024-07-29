@@ -19,5 +19,5 @@ for article in data['articles']:
                 print("File exists: " + f'{root}/docs/{article}/{article}.{lang["short"]}.rst')
                 pass
         except FileNotFoundError:
-            print(f'::error: {root}/docs/{article}/{article}.{lang["short"]}.rst missing')
+            print(f'::error {root}/docs/{article}/{article}.{lang["short"]}.rst missing')
             # exit(1)
