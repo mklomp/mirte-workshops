@@ -21,6 +21,13 @@ for article in data['articles']:
         except FileNotFoundError:
             print(f'::error title=::docs/{article}/{article}.{lang["short"]}.rst missing')
             err_count += 1
+    # check that the main file does not exist
+    try:
+        with open(f'{root}/docs/{article}/{article}.rst') as file:
+            print(f'::error title=::docs/{article}/{article}.rst should not exist')
+            err_count += 1
+    except FileNotFoundError:
+        pass
 
 
 if err_count > 0:
