@@ -20,4 +20,4 @@ for article in data['articles']:
     are_changed = [file in changed_files for file in article_files]
 
     if any(are_changed) and not all(are_changed):
-        print(f'::warn title=::All files for article {article} should be changed')
+        print(f'::warning title=::All files for article {article} should be changed')
