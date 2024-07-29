@@ -13,21 +13,28 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import glob, subprocess, sys, time
+import glob, subprocess, sys, time, os, json
 
 # -- Project information -----------------------------------------------------
 
 project = 'Mirte Workshops'
 #copyright = '2023, Martin Klomp, TU Delft Robotics Institute'
+articles_settings = json.loads(open('_static/js/articles.json').read())
 
-lang = 'nl'  # default language
-if 'lang_en' in tags.tags.keys():
-    print("engels!!!!")
-    lang = 'en'
+lang = articles_settings["default_language"]  # default language
+for lang_opt in articles_settings["languages"]:
+    print("Checking for lang: " + str(lang_opt))
+    # print(tags.tags)
+    if(f'lang_{lang_opt["short"]}' in tags.tags.keys()):
+        lang = lang_opt["short"]
+        print(f"Found lang: {lang}")
+# if 'lang_en' in tags.tags.keys():
+#     lang = 'en'
 
 # For multi-lang, copy article.{lang}.rst to article.rst
-articles = ['assemble']
-for article in articles:
+
+
+for article in articles_settings["articles"]:
     with open(f'docs/{article}/{article}.rst', 'w') as f:
         f.write(open(f'docs/{article}/{article}.{lang}.rst').read())
 
@@ -41,7 +48,7 @@ for article in articles:
 extensions = ['sphinxcontrib.video', 'sphinx_design']
 
 # Add any paths that contain templates here, relative to this directory.
-#templates_path = ['_templates']
+templates_path = ['_templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
