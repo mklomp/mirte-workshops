@@ -27,6 +27,8 @@ for article in data['articles']:
             print(f'::error title=::docs/{article}/{article}.rst should not exist')
             err_count += 1
     except FileNotFoundError:
+        print("File doesn't exists(good): " + f'docs/{article}/{article}.rst')
+
         pass
 
 
