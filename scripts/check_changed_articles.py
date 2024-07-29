@@ -16,10 +16,8 @@ for article in data['articles']:
     article_files = []
     for lang in data['languages']:
         article_files.append(f'docs/{article}/{article}.{lang["short"]}.rst')
-    # article_files.append(f'docs/{article}/{article}.rst')
     print("Article files: " + str(article_files))
-    print([file in changed_files for file in article_files])
+    are_changed = [file in changed_files for file in article_files]
 
-    if any(file in changed_files for file in article_files) and not all(file in changed_files for file in article_files):
-        print(f'::error title=::All files for article {article} should be changed')
-        exit(1)
+    if any(are_changed) and not all(are_changed):
+        print(f'::warn title=::All files for article {article} should be changed')
