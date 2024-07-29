@@ -18,3 +18,5 @@ jobs:
         - name: Run check script
           run: |
             python ./scripts/check_articles.py
+        # - name: Create annotation for build error
+        #   run: echo "::warning title=test::foutje"
