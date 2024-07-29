@@ -34,6 +34,7 @@ jobs:
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
+          python ./scripts/check_changed_articles.py "$ALL_CHANGED_FILES"
           OUTPUT=$(python ./scripts/check_changed_articles.py "$ALL_CHANGED_FILES")
           echo $OUTPUT
           #OUTPUT=$(shell command or script to extract the part your want)
