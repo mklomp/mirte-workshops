@@ -22,9 +22,18 @@ jobs:
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v44
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+                python-version: 3.x
 
       - name: List all changed files
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           python ./scripts/check_changed_articles.py "$ALL_CHANGED_FILES"
+
+        #   python ./scripts/check_changed_articles.py "$ALL_CHANGED_FILES"
