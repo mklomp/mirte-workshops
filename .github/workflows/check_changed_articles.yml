@@ -38,10 +38,10 @@ jobs:
           OUTPUT=$(python ./scripts/check_changed_articles.py "$ALL_CHANGED_FILES")
           echo $OUTPUT
           #OUTPUT=$(shell command or script to extract the part your want)
-           {
-            echo 'MESSAGE<<EOF'
-            echo $OUTPUT
-            echo EOF
+          {
+          echo 'MESSAGE<<EOF'
+          echo $OUTPUT
+          echo EOF
           } >> "$GITHUB_ENV"
         #   echo "MESSAGE=$OUTPUT" >> $GITHUB_ENV
 
