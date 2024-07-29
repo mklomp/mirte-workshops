@@ -39,7 +39,7 @@ jobs:
           #OUTPUT=$(shell command or script to extract the part your want)
            {
             echo 'MESSAGE<<EOF'
-            echo OUTPUT
+            echo $OUTPUT
             echo EOF
           } >> "$GITHUB_ENV"
         #   echo "MESSAGE=$OUTPUT" >> $GITHUB_ENV
