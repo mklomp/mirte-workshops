@@ -1,7 +1,7 @@
 $ python3 -m venv docs-env
 $ source docs-env/bin/activate
-(docs-env)$ pip install sphinx sphinx-book-theme sphinx-design sphinxcontrib-video
-(docs-env)$ make html
+(docs-env)$ pip install -r requirements.txt
+(docs-env)$ make build_lang
 (docs-env)$ python3 -m http.server
 
 

@@ -53,7 +53,9 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_modules', 'docs-env']
+
+# don't build the original language files
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_modules', 'docs-env', *[f'**/*.{x["short"]}.rst' for x in articles_settings["languages"] ]]
 
 
 # intl
@@ -117,3 +119,4 @@ linkcheck_ignore = [r'^http://$', r'^http://mirte.local.*', r'.*localhost.*', r'
 linkcheck_anchors_ignore_for_url = [
    
 ]
+language = lang
