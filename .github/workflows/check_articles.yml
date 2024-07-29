@@ -2,7 +2,7 @@ name: Python CI
 
 on:
     push:
-
+    workflow_call:
 jobs:
     check_articles:
         runs-on: ubuntu-latest
