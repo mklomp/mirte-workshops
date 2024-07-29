@@ -27,4 +27,4 @@ jobs:
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          python ./scripts/check__changed_articles.py "$ALL_CHANGED_FILES"
+          python ./scripts/check_changed_articles.py "$ALL_CHANGED_FILES"
