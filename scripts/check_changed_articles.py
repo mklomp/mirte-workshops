@@ -8,6 +8,7 @@ with open('_static/js/articles.json') as file:
 # arg1 = list of changed files
 
 changed_files = sys.argv[1] 
+normal_text = bool(sys.argv[2]) # 0: for ci, 1 for comment
 changed_files = changed_files.split(" ")
 # print("Changed files: " + str(changed_files))
 warn_count = 0
@@ -21,8 +22,11 @@ for article in data['articles']:
 
     if any(are_changed) and not all(are_changed):
         warn_count += 1
-        print(f'::warning title=::All files for article {article} should be changed')
+        if normal_text:
+            print(f'All files for article {article} should be changed :thumbsdown:')
+        else:
+            print(f'::warning title=::All files for article {article} should be changed')
 
 
 if warn_count == 0:
-    print("No articles are partially changed")
+    print("No articles are partially changed :thumbsup:")
