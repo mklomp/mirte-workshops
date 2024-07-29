@@ -16,10 +16,10 @@ for article in data['articles']:
         # Check if the file exists
         try:
             with open(f'{root}/docs/{article}/{article}.{lang["short"]}.rst') as file:
-                print("File exists: " + f'{root}/docs/{article}/{article}.{lang["short"]}.rst')
+                print("File exists: " + f'docs/{article}/{article}.{lang["short"]}.rst')
                 pass
         except FileNotFoundError:
-            print(f'::error title=::{root}/docs/{article}/{article}.{lang["short"]}.rst missing')
+            print(f'::error title=::docs/{article}/{article}.{lang["short"]}.rst missing')
             err_count += 1
 
 
