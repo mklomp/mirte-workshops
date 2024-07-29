@@ -23,10 +23,10 @@ for article in data['articles']:
     if any(are_changed) and not all(are_changed):
         warn_count += 1
         if normal_text:
-            print(f'All files for article **"{article}"** should be changed :thumbsdown: Please check!')
+            print(f'All files for article **"{article}"** should be changed. Please check!')
         else:
             print(f'::warning title=::All files for article {article} should be changed')
 
 
 if warn_count == 0:
-    print("No articles are partially changed :thumbsup:")
+    print("No articles are partially changed (language) :thumbsup:")
