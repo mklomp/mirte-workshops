@@ -190,11 +190,11 @@ function change_lang(lang) {
   console.log(root, current_article, lang)
   console.log(lang)
   // url is root/lang/docs/article/article.html#hash
-  // if lang is default, remove lang
   let hash = window.location.hash;
   let new_url = `${root}${lang}/docs/${current_article}/${current_article}.html${hash}`;
+  if(current_article == "index") {
+    new_url = `${root}${lang}/index.html${hash}`;
+  }
   console.log(new_url)
   window.location = new_url;
-
-  // TODO: fix for index
 }
