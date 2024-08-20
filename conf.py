@@ -36,9 +36,15 @@ for lang_opt in articles_settings["languages"]:
 
 for article in articles_settings["articles"]:
     try:
-        with open(f'docs/{article}/{article}.{lang}.rst') as f_lang:
-            with open(f'docs/{article}/{article}.rst', 'w') as f_dest:
-                f_dest.write(f_lang.read())
+        # check if file exists
+        translated_file = f'docs/{article}/{article}.{lang}.rst'
+        if(not os.path.exists(translated_file)):
+            print(f"missing article file for {article} in {lang}") # TODO: add banner
+            translated_file = f'docs/{article}/{article}.{articles_settings["default_language"]}.rst'
+        else:
+            with open(translated_file) as f_lang:
+                with open(f'docs/{article}/{article}.rst', 'w') as f_dest:
+                    f_dest.write(f_lang.read())
     except Exception as e:
         print(e)
         print("missing article file for " + article)

@@ -12,7 +12,7 @@ with open(os.path.abspath( f'{script_path}/../_static/js/articles.json')) as fil
     articles_data = json.load(file)
 
 
-def dedup_one(lang):
+def dedup_one(lang, default_lang = articles_data["default_language"]):
 
     folder_path = os.path.abspath( f'{script_path}/../_build/html/{lang}')
     html_files = []
@@ -26,7 +26,7 @@ def dedup_one(lang):
     for file in html_files:
         with open(file, 'r+') as f:
             t = f.read()
-            t = t.replace("_images/", "../_images/").replace("_static/", "../_static/")
+            t = t.replace("_images/", f"../{default_lang}/_images/").replace("_static/", f"../{default_lang}/_static/")
             f.seek(0)
             f.write(t)
             f.truncate()
