@@ -132,10 +132,6 @@ function get_current_lang(article_data) {
   current_url_parts = current_url_parts.filter((part) => article_data.languages.map((l) => l.short).includes(part));
   console.log(current_url_parts)
   console.log(current_url_parts.length)
-  if(current_url_parts.length !=1) { // if the language is not in the url
-    console.log("def", article_data.default_language)
-    return article_data.default_language;
-  }
   return current_url_parts[0];
 }
 
@@ -180,7 +176,8 @@ function get_root() {
   let static = get_static_path();
   static = static.split('/').slice(0, -2).join('/')+'/'; // root of the current language
   let curr_lang = get_current_lang(global_article_data);
-  if(static.endsWith(curr_lang+'/')) {
+  let default_lang = global_article_data.default_language;
+  if(static.endsWith(curr_lang+'/') || static.endsWith(default_lang+'/')) {
     return static.split('/').slice(0, -2).join('/')+'/';
   }
   return static;
@@ -195,7 +192,7 @@ function change_lang(lang) {
   // url is root/lang/docs/article/article.html#hash
   // if lang is default, remove lang
   let hash = window.location.hash;
-  let new_url = `${root}${lang == global_article_data.default_language? '' : lang+'/'}docs/${current_article}/${current_article}.html${hash}`;
+  let new_url = `${root}${lang}/docs/${current_article}/${current_article}.html${hash}`;
   console.log(new_url)
   window.location = new_url;
 

@@ -15,6 +15,18 @@
 # sys.path.insert(0, os.path.abspath('.'))
 import glob, subprocess, sys, time, os, json
 
+# Get git information
+try:
+    output = subprocess.check_output(["git ls-remote --get-url origin"], shell=True).decode(sys.stdout.encoding)
+    parts = str(output).split(".com/")[1].split("/")
+    github_repo = parts[1].split(".git")[0]
+    github_user = parts[0]
+    github_version = str(subprocess.check_output(["git rev-parse --abbrev-ref HEAD"], shell=True).decode(sys.stdout.encoding)).strip() + "/"
+except Exception as e:
+    print("Could not get git information: " + str(e))
+    github_repo = "mirte-workshops"
+    github_user = "mirte-robot"
+    github_version = "main"
 # -- Project information -----------------------------------------------------
 
 project = 'Mirte Workshops'
@@ -22,29 +34,35 @@ project = 'Mirte Workshops'
 articles_settings = json.loads(open('_static/js/articles.json').read())
 
 lang = articles_settings["default_language"]  # default language
+lang_long = ""
 for lang_opt in articles_settings["languages"]:
     print("Checking for lang: " + str(lang_opt))
     # print(tags.tags)
     if(f'lang_{lang_opt["short"]}' in tags.tags.keys()):
         lang = lang_opt["short"]
+        lang_long = lang_opt["long"]
         print(f"Found lang: {lang}")
-# if 'lang_en' in tags.tags.keys():
-#     lang = 'en'
+    if(lang_opt["short"] == articles_settings["default_language"]):
+        lang_default = lang_opt["short"]
+        lang_default_long = lang_opt["long"]
 
 # For multi-lang, copy article.{lang}.rst to article.rst
-
-
 for article in articles_settings["articles"]:
     try:
         # check if file exists
         translated_file = f'docs/{article}/{article}.{lang}.rst'
+        put_warning = False
         if(not os.path.exists(translated_file)):
             print(f"missing article file for {article} in {lang}") # TODO: add banner
-            translated_file = f'docs/{article}/{article}.{articles_settings["default_language"]}.rst'
-        else:
-            with open(translated_file) as f_lang:
-                with open(f'docs/{article}/{article}.rst', 'w') as f_dest:
-                    f_dest.write(f_lang.read())
+            translated_file = f'docs/{article}/{article}.{lang_default}.rst'
+            put_warning = True
+        
+        with open(translated_file) as f_lang:
+            with open(f'docs/{article}/{article}.rst', 'w') as f_dest:
+                article_content = f_lang.read()
+                if(put_warning):
+                    article_content = article_content.replace(".. WARNING_SPOT\n", f".. warning::\n\n    This article is not yet translated to {lang_long}. Here is the {lang_default_long} version. You can create a {lang_long} version on https://github.com/{github_user}/{github_repo}\n\n")
+                f_dest.write(article_content)
     except Exception as e:
         print(e)
         print("missing article file for " + article)
@@ -108,9 +126,9 @@ html_context = {
 try:
     output = subprocess.check_output(["git ls-remote --get-url origin"], shell=True).decode(sys.stdout.encoding)
     parts = str(output).split(".com/")[1].split("/")
-    html_context["github_repo"] = parts[1].split(".git")[0]
-    html_context["github_user"] = parts[0]
-    html_context['github_version'] = str(subprocess.check_output(["git rev-parse --abbrev-ref HEAD"], shell=True).decode(sys.stdout.encoding)).strip() + "/"
+    html_context["github_repo"] = github_repo
+    html_context["github_user"] = github_user
+    html_context['github_version'] = github_version
 except Exception as e:
     print("Could not get git information: " + str(e))
 
