@@ -121,7 +121,7 @@ html_theme_options = {
     "use_issues_button": True,
     "use_edit_page_button": True,
     "use_fullscreen_button": False,
-    "extra_footer": f"&copy; 2024, Martin Klomp {time.time()}, <a href='https://tudelftroboticsinstitute.nl/'>TU Delft Robotics Institute</a>",
+    "extra_footer": f"&copy; 2024, Martin Klomp, <a href='https://tudelftroboticsinstitute.nl/'>TU Delft Robotics Institute</a>",
 }
 
 
