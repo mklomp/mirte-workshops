@@ -46,6 +46,14 @@ for lang_opt in articles_settings["languages"]:
         lang_default = lang_opt["short"]
         lang_default_long = lang_opt["long"]
 
+try:
+    with open(f'docs/banners/banner.{lang}.rst') as f:
+        banner_text = f.read()
+except:
+    print(f"No banner found for {lang}, this is required")
+    exit(1)
+
+
 # For multi-lang, copy article.{lang}.rst to article.rst
 for article in articles_settings["articles"]:
     try:
@@ -61,7 +69,10 @@ for article in articles_settings["articles"]:
             with open(f'docs/{article}/{article}.rst', 'w') as f_dest:
                 article_content = f_lang.read()
                 if(put_warning):
-                    article_content = article_content.replace(".. WARNING_SPOT\n", f".. warning::\n\n    This article is not yet translated to {lang_long}. Here is the {lang_default_long} version. You can create a {lang_long} version on https://github.com/{github_user}/{github_repo}\n\n")
+                    if(not ".. WARNING_SPOT" in article_content):
+                        print("missing WARNING_SPOT place in " + article)
+                        exit(1)
+                    article_content = article_content.replace(".. WARNING_SPOT\n", banner_text.replace("{github_user}", github_user).replace("{github_repo}", github_repo))
                 f_dest.write(article_content)
     except Exception as e:
         print(e)
@@ -83,7 +94,7 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 
 # don't build the original language files
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_modules', 'docs-env', *[f'**/*.{x["short"]}.rst' for x in articles_settings["languages"] ]]
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_modules', 'docs-env', *[f'**/*.{x["short"]}.rst' for x in articles_settings["languages"]], 'docs/banners/*', 'docs/index/*' ]
 
 
 # intl
