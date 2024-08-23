@@ -3,8 +3,11 @@ name: Linkcheck
 on: [push, pull_request]
 
 jobs:
-  linkcheck:
+  check_articles:
+    uses: ./.github/workflows/check_articles.yml
 
+  linkcheck:
+    needs: check_articles
     runs-on: ubuntu-latest
     strategy:
       matrix:

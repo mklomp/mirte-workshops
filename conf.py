@@ -13,12 +13,70 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import glob, subprocess, sys
+import glob, subprocess, sys, time, os, json
 
+# Get git information
+try:
+    output = subprocess.check_output(["git ls-remote --get-url origin"], shell=True).decode(sys.stdout.encoding)
+    parts = str(output).split(".com/")[1].split("/")
+    github_repo = parts[1].split(".git")[0]
+    github_user = parts[0]
+    github_version = str(subprocess.check_output(["git rev-parse --abbrev-ref HEAD"], shell=True).decode(sys.stdout.encoding)).strip() + "/"
+except Exception as e:
+    print("Could not get git information: " + str(e))
+    github_repo = "mirte-workshops"
+    github_user = "mirte-robot"
+    github_version = "main"
 # -- Project information -----------------------------------------------------
 
 project = 'Mirte Workshops'
 #copyright = '2023, Martin Klomp, TU Delft Robotics Institute'
+articles_settings = json.loads(open('_static/js/articles.json').read())
+
+lang = articles_settings["default_language"]  # default language
+lang_long = ""
+for lang_opt in articles_settings["languages"]:
+    print("Checking for lang: " + str(lang_opt))
+    # print(tags.tags)
+    if(f'lang_{lang_opt["short"]}' in tags.tags.keys()):
+        lang = lang_opt["short"]
+        lang_long = lang_opt["long"]
+        print(f"Found lang: {lang}")
+    if(lang_opt["short"] == articles_settings["default_language"]):
+        lang_default = lang_opt["short"]
+        lang_default_long = lang_opt["long"]
+
+try:
+    with open(f'docs/banners/banner.{lang}.rst') as f:
+        banner_text = f.read()
+except:
+    print(f"No banner found for {lang}, this is required")
+    exit(1)
+
+
+# For multi-lang, copy article.{lang}.rst to article.rst
+for article in articles_settings["articles"]:
+    try:
+        # check if file exists
+        translated_file = f'docs/{article}/{article}.{lang}.rst'
+        put_warning = False
+        if(not os.path.exists(translated_file)):
+            print(f"missing article file for {article} in {lang}") # TODO: add banner
+            translated_file = f'docs/{article}/{article}.{lang_default}.rst'
+            put_warning = True
+        
+        with open(translated_file) as f_lang:
+            with open(f'docs/{article}/{article}.rst', 'w') as f_dest:
+                article_content = f_lang.read()
+                if(put_warning):
+                    if(not ".. WARNING_SPOT" in article_content):
+                        print("missing WARNING_SPOT place in " + article)
+                        exit(1)
+                    article_content = article_content.replace(".. WARNING_SPOT\n", banner_text.replace("{github_user}", github_user).replace("{github_repo}", github_repo))
+                f_dest.write(article_content)
+    except Exception as e:
+        print(e)
+        print("missing article file for " + article)
 
 
 # -- General configuration ---------------------------------------------------
@@ -29,26 +87,27 @@ project = 'Mirte Workshops'
 extensions = ['sphinxcontrib.video', 'sphinx_design']
 
 # Add any paths that contain templates here, relative to this directory.
-#templates_path = ['_templates']
+templates_path = ['_templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_modules', 'docs-env']
+
+# don't build the original language files
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '_modules', 'docs-env', *[f'**/*.{x["short"]}.rst' for x in articles_settings["languages"]], 'docs/banners/*', 'docs/index/*' ]
 
 
 # intl
-locale_dirs = glob.glob('./docs/*/_locale/')
-locale_dirs.append('locale/')
-print(locale_dirs)
+# locale_dirs = glob.glob('./docs/*/_locale/')
+# locale_dirs.append('locale/')
+# print(locale_dirs)
 gettext_compact = False
-
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-
+author = 'Martin Klomp'
 html_theme = 'sphinx_book_theme'
 html_title = "Mirte Workshops"
 
@@ -78,9 +137,9 @@ html_context = {
 try:
     output = subprocess.check_output(["git ls-remote --get-url origin"], shell=True).decode(sys.stdout.encoding)
     parts = str(output).split(".com/")[1].split("/")
-    html_context["github_repo"] = parts[1].split(".git")[0]
-    html_context["github_user"] = parts[0]
-    html_context['github_version'] = str(subprocess.check_output(["git rev-parse --abbrev-ref HEAD"], shell=True).decode(sys.stdout.encoding)).strip() + "/"
+    html_context["github_repo"] = github_repo
+    html_context["github_user"] = github_user
+    html_context['github_version'] = github_version
 except Exception as e:
     print("Could not get git information: " + str(e))
 
@@ -91,7 +150,7 @@ html_theme_options = {
     "use_issues_button": True,
     "use_edit_page_button": True,
     "use_fullscreen_button": False,
-    "extra_footer": "&copy; 2024, Martin Klomp, <a href='https://tudelftroboticsinstitute.nl/'>TU Delft Robotics Institute</a>",
+    "extra_footer": f"&copy; 2024, Martin Klomp, <a href='https://tudelftroboticsinstitute.nl/'>TU Delft Robotics Institute</a>",
 }
 
 
@@ -99,3 +158,4 @@ linkcheck_ignore = [r'^http://$', r'^http://mirte.local.*', r'.*localhost.*', r'
 linkcheck_anchors_ignore_for_url = [
    
 ]
+language = lang
