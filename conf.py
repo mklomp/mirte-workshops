@@ -133,6 +133,11 @@ html_context = {
    "github_user": "mirte-robot"
 }
 
+html_sidebars = {
+    "**": ["navbar-logo.html", "sbt-sidebar-nav.html"]
+}
+
+
 # Try to update from git
 try:
     output = subprocess.check_output(["git ls-remote --get-url origin"], shell=True).decode(sys.stdout.encoding)
