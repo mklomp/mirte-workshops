@@ -54,7 +54,7 @@ stoppen ze een lijn ziet.
    Als je nou een foutje hebt gemaakt kan je met de ‘undo’ knop weer terug naar je 
    vorige programma.
 
-   .. image:: _media/undo.png
+   .. image:: _media/undo_button.png
       :width: 350
       :alt: Undo
 
