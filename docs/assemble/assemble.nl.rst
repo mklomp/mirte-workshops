@@ -1,4 +1,6 @@
-:fa:`wrench` In elkaar zetten
+:orphan:
+
+In elkaar zetten
 ################################
 
 .. article-info::

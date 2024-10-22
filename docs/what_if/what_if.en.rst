@@ -1,8 +1,6 @@
 :orphan:
-:html_theme.sidebar_secondary.remove:
-:hide-toc:
 
-:fa:`brain` What if.....
+What if.....
 #########################
 
 .. article-info::
@@ -53,7 +51,7 @@ basics of programming. You will program a robot that stops when it sees a line.
    button.
 
    .. image:: _media/undo_button.png
-      :width: 350
+      :width: 70
       :alt: Undo
 
 3

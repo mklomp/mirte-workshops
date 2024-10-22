@@ -1,8 +1,6 @@
 :orphan:
-:html_theme.sidebar_secondary.remove:
-:hide-toc:
 
-:fa:`eye` Licht meten
+Licht meten
 #####################
 
 .. article-info::

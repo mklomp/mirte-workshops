@@ -1,12 +1,10 @@
 :orphan:
-:html_theme.sidebar_secondary.remove:
-:hide-toc:
 
 .. |check| raw:: html
 
     <input type="checkbox">
 
-:fa:`cog` Onderdelen controleren
+Onderdelen controleren
 ################################
 
 .. article-info::

@@ -7,7 +7,7 @@ Great to see that you are about to start your journey with the Mirte robot. The 
 workshops are meant for high school students. With each robot, you will learn some theory
 and work on the robot itself. After completing these workshops you will be able to build
 the robot and let it follow a line. If you like you can also extend your robot and compete
-in the `RoboCupJunior <https://www.robocupjunior.org>`_ competitions (please see the 
+in the `RoboCupJunior <https://junior.robocup.org>`_ competitions (please see the 
 `community page <https://junior.robocup.org/community/>`_ for all regional competitions).
 
 .. video:: /_static/media/line_follow.mp4

@@ -1,4 +1,6 @@
-:fa:`wrench` Assemble
+:orphan:
+
+Assemble
 ################################
 
 .. article-info::

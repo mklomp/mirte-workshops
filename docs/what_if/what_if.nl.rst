@@ -1,8 +1,6 @@
 :orphan:
-:html_theme.sidebar_secondary.remove:
-:hide-toc:
 
-:fa:`brain` Wat als.....
+Wat als.....
 #########################
 
 .. article-info::
@@ -55,7 +53,7 @@ stoppen ze een lijn ziet.
    vorige programma.
 
    .. image:: _media/undo_button.png
-      :width: 350
+      :width: 70
       :alt: Undo
 
 3
