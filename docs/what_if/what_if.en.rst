@@ -2,7 +2,7 @@
 :html_theme.sidebar_secondary.remove:
 :hide-toc:
 
-:fa:`brain` What if....
+:fa:`brain` What if.....
 #########################
 
 .. article-info::
