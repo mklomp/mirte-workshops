@@ -20,6 +20,7 @@ window.onload = (event) => {
 //  header.append("<div>L</div>");
   update_from_hash();
   get_articles();
+  load_lazy_imgs();  
 };
 
 function update_from_hash(){
@@ -192,4 +193,17 @@ function change_lang(lang) {
   }
   console.log(new_url)
   window.location = new_url;
+}
+
+// assemble page has a lot of images that are not shown until you get to that step. Lazy loading makes the page load faster (js is loaded last)
+// this function will remove the loading="lazy" attribute from all the images on the page so they will load after the page is loaded.
+function load_lazy_imgs() {
+  setTimeout(() => {
+    // get all the images with the loading="lazy" attribute
+    let images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach((img) => {
+      // remove the loading attribute
+      img.removeAttribute('loading');
+    });
+  }, 2000);
 }
