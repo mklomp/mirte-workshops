@@ -15,11 +15,6 @@ function appendHtml(el, str) {
 
 
 window.onload = (event) => {
-  // Fix for the scrollbar issue in books theme:
-  // https://github.com/executablebooks/sphinx-book-theme/issues/732
-  let footer = document.getElementById('rtd-footer-container');
-  footer.remove();
-
   // Fix to add languea selector button to header:
   // https://github.com/executablebooks/sphinx-book-theme/issues/797
 //  header.append("<div>L</div>");
@@ -212,4 +207,3 @@ function load_lazy_imgs() {
     });
   }, 2000);
 }
-

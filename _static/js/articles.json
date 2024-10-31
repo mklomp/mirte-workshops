@@ -1,11 +1,11 @@
 {
     "articles": [
-        "assemble", "drive", "index"
+        "assemble", "drive", "index", "parts", "wakeup", "line_sensor", "follow_line_1_sensor", "loops_functions", "what_if"
     ],
     "languages": [
         {
             "short": "nl",
-            "long": "Dutch"
+            "long": "Nederlands"
         },
         {
             "short": "en",

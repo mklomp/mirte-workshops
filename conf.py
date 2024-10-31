@@ -30,7 +30,7 @@ except Exception as e:
 # -- Project information -----------------------------------------------------
 
 project = 'Mirte Workshops'
-#copyright = '2023, Martin Klomp, TU Delft Robotics Institute'
+copyright = 'Delft University of Technology, CC BY-SA 4.0'
 articles_settings = json.loads(open('_static/js/articles.json').read())
 
 lang = articles_settings["default_language"]  # default language
@@ -133,6 +133,11 @@ html_context = {
    "github_user": "mirte-robot"
 }
 
+html_sidebars = {
+    "**": ["navbar-logo.html", "sbt-sidebar-nav.html"]
+}
+
+
 # Try to update from git
 try:
     output = subprocess.check_output(["git ls-remote --get-url origin"], shell=True).decode(sys.stdout.encoding)
@@ -150,7 +155,7 @@ html_theme_options = {
     "use_issues_button": True,
     "use_edit_page_button": True,
     "use_fullscreen_button": False,
-    "extra_footer": f"&copy; 2024, Martin Klomp, <a href='https://tudelftroboticsinstitute.nl/'>TU Delft Robotics Institute</a>",
+    "secondary_sidebar_items": []
 }
 
 

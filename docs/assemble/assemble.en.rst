@@ -1,15 +1,16 @@
-:fa:`wrench` In elkaar zetten
+:orphan:
+
+Assemble
 ################################
 
 .. article-info::
-    :author: :fa:`wrench` Bouwen
+    :author: :fa:`wrench` Build
     :read-time: 30 min
 
 .. WARNING_SPOT
 
 1
 ----
-Engelish
 
 .. image:: _media/15_step1.png
    :width: 500

@@ -1,12 +1,10 @@
 :orphan:
-:html_theme.sidebar_secondary.remove:
-:hide-toc:
 
-:fa:`brain` Rijden maar
+Drive
 ########################
 
 .. article-info::
-    :author: :fa:`brain` Programmeren
+    :author: :fa:`brain` Programming
     :read-time: 15 min
 
 .. WARNING_SPOT
@@ -14,9 +12,9 @@
 1
 ---
 
-In de vorige workshop heb je de robot aangezet. Maar ze doet nog niets.
-Ze staat nog wel steeds stil. In deze workshop leer je hoe je de
-robot rond kan laten rijden en waarom niet alle motoren hetzelfde zijn.
+In the previous workshop you've learned how to turn the robot on and off.
+But she is not doing anything yet. In this workshop you will learn how
+to drive around and why all motors are different.
 
 .. video:: /_static/media/mirte_drive.mp4
    :width: 500
@@ -24,13 +22,12 @@ robot rond kan laten rijden en waarom niet alle motoren hetzelfde zijn.
    :loop:
 
 
-.. admonition:: LET OP
+.. admonition:: BE CAREFUL
    :class: warning
 
-   In deze workshop ga je met de robot rondrijden. Om te zorgen dat je 
-   robot niet stuk gaat moet er altijd voor zorgen dat je robot op de 
-   vloer staat en dus niet van je tafel afrijdt!
-
+   You will drive around with the robot. We do not want your robot to 
+   break, so make sure you have put the robot on the floor so she
+   will not drive off a table.
 
 2
 ---
@@ -40,12 +37,10 @@ robot rond kan laten rijden en waarom niet alle motoren hetzelfde zijn.
 
    .. grid-item::
 
-      Je had het misschien al gezien, aan de rechterkant van het paneel
-      vind je in het ‘besturen’ tabblad bij ‘actuatoren’ 
-      ook de motoren op de motor aanzetten. De makkelijkste manier om dit te 
-      doen is om op de pijltjes te klikken bij ‘Besturing’. Probeer je robot 
-      maar eens een stukje te laten rijden. Met het pijltje naar boven zou 
-      de robot naar voren moeten rijden.
+      You might have already seen the 'control' tab in 'actuators' on
+      the right. The easiest way to drive around is by clicking one
+      of the arrows. Try to drive around with your robot. The arrow up
+      should make your robot drive forward.
 
    .. grid-item::
 
@@ -56,16 +51,16 @@ robot rond kan laten rijden en waarom niet alle motoren hetzelfde zijn.
 
 .. dropdown:: :fa:`question-circle` Help
 
-   - Als er geen enkele motor draait:
-      - Controleer of de motordraadjes goed in de motor controller zitten.
-      - Controleer of het lampje van de motorcontroller aan is. Als deze
-        niet aan is kan je kijken of deze goed in de PCB zit. Als ook dat klopt
-        kan je nog even controleren of misschien een motor controller van
-        een andere robot wel werkt.
-   - Als de motoren wel draaien, maar ze gaan de verkeerde kant op:
-      - Het kan natuurlijk zijn dat je de draadjes van de motoren niet goed
-        hebt aangesloten. Kijk hoe je de draadjes goed aan kan sluiten 
-        totdat het wel goed werkt.
+   - When none of the motors are turning:
+      - Check that the wiring of the motors is correct.
+      - Check that the small light on the motor driver is on. Make sure that
+        it is connected to the PCB correctly. If this still fails, you might
+        need to check if the motor driver is working at all by testing it with
+        someone elses.
+   - When the motors are turning, but not in the right direction:
+      - It could be the case that the wiring of the motors is not done correctly.
+        For example: left is right, etc. Please make sure that they are
+        properly connected.
 
 3
 ---
@@ -75,13 +70,11 @@ robot rond kan laten rijden en waarom niet alle motoren hetzelfde zijn.
 
    .. grid-item::
 
-      De robot zou nu een stukje moeten gaan rijden. Het kan zijn dat je robot 
-      nog wat te snel gaat, of dat ze te langzaam draait. Je kan dit proberen 
-      in te stellen door de snelheid en draaisnelheid aan te passen. Omdat niet 
-      alle motoren hetzelfde zijn zal dit voor elke robot anders zijn. Het kan zelfs 
-      zo zijn dat de beide motoren in je robot iets anders bewegen (en de robot 
-      dus niet rechtdoor gaat).
- 
+      The robot should be able to drive now. It could be that your robot 
+      is driving a bit too fast or too slow. You can try to change these
+      settings. It is also highly likely that your robot does not go 
+      perfectly straight since both motors have a slightly different speed.
+
    .. grid-item::
 
       .. image:: _media/drive_speed_settings.png
@@ -96,21 +89,21 @@ robot rond kan laten rijden en waarom niet alle motoren hetzelfde zijn.
 
    .. grid-item::
 
-      Dat beide motoren niet precies hetzelfde zijn kunnen we ook op een andere 
-      manier bekijken. We kunnen de motoren namelijk ook los van elkaar aanzetten. 
-      Elke motor kunnen we een waarde tussen de -100 en 100 geven.
+      We can get a bit better understanding of the fact that not both motors
+      are turning with the same speed. We can also control the motors 
+      individually. Each motor can get a value from -100 to 100.
 
       +------+--------------------+
-      | -100 | maximaal achteruit |
+      | -100 | fully backward     |
       +------+--------------------+
       | 0    | stop               |
       +------+--------------------+
-      | 100  | maximaal vooruit   |
+      | 100  | fully forward      |
       +------+--------------------+
 
-      Elke motor is anders en zal bij een andere waarde pas beginnen met rijden. 
-      Tot die tijd zal je een soort piepje horen. Dat komt omdat de motor wel wil 
-      draaien, maar nog te veel weerstand voelt.
+      Each motor is slightly different and will only start to rotate at a different
+      value. Below that threshold, you will only hear a soft beep. This is the sound
+      of the motor trying to move, but still having too much friction.
 
    .. grid-item::
       
@@ -126,26 +119,26 @@ robot rond kan laten rijden en waarom niet alle motoren hetzelfde zijn.
 
    .. grid-item::
 
-      **Opdracht:** Laat de robot op de grond staan en probeer van beide 
-      motoren de waardes te vinden wanneer ze beginnen te draaien.
+      **Assignment:** Put the robot on the ground and try to find the
+      values where the motor starts to move the robot for each motor.
 
    .. grid-item::
 
       +--------------------------------+-------+
-      | De **linker** motor draait...  |       |
+      | The **left** motor turns...    |       |
       +================================+=======+
-      | ... vooruit vanaf waarde:      | . . . | 
+      | ... forward from value:        | . . . | 
       +--------------------------------+-------+
-      | ... achteruit vanaf waarde:    | . . . |
+      | ... backward from value:       | . . . |
       +--------------------------------+-------+
 
 
       +--------------------------------+-------+
-      | De **rechter** motor draait... |       |
+      | The **right** motor turns...   |       |
       +================================+=======+
-      | ... vooruit vanaf waarde:      | . . . |
+      | ... forward from value:        | . . . |
       +--------------------------------+-------+
-      | ... achteruit vanaf waarde:    | . . . |
+      | ... backward from value:       | . . . |
       +--------------------------------+-------+
 
 5
@@ -156,48 +149,46 @@ robot rond kan laten rijden en waarom niet alle motoren hetzelfde zijn.
 
    .. grid-item::
 
-      **Opdracht:** Til de robot nu op van de grond en probeer van beide 
-      motoren de waardes te vinden wanneer ze beginnen te draaien.
+      **Assignment:** Lift the robot up, and try to find the values
+      again.
 
    .. grid-item::
 
       +--------------------------------+-------+
-      | De **linker** motor draait...  |       |
+      | The **left** motor turns...    |       |
       +================================+=======+
-      | ... vooruit vanaf waarde:      | . . . |
+      | ... forward from value:        | . . . |
       +--------------------------------+-------+
-      | ... achteruit vanaf waarde:    | . . . |
+      | ... backward from value:       | . . . |
       +--------------------------------+-------+
 
 
       +--------------------------------+-------+
-      | De **rechter** motor draait... |       |
+      | The **right** motor turns...   |       |
       +================================+=======+
-      | ... vooruit vanaf waarde:      | . . . |
+      | ... forward from value:        | . . . |
       +--------------------------------+-------+
-      | ... achteruit vanaf waarde:    | . . . |
+      | ... backward from value:       | . . . |
       +--------------------------------+-------+
-
 
 6
 ---
 
-Je merkt dat de waardes anders zijn als de robot op de grond staat of niet.
-Als de robot op de grond staat ondervindt ze wrijving van de grond, waardoor
-de motor beter zijn best moet doen voordat deze gaat draaien. 
+You will see that the values are different depending on whether the robot
+is on the ground or not. When the robot is touching the ground it will
+feel more friction resulting in the motor trying to rotate even more.
 
-Maar zoals je misschien ook gezien hebt kunnen deze waardes ook per motor
-iets anders zijn. Elke motor is weer anders en zal bij een iets andere waarde
-starten. 
+But you have probably also seen that each motor has a slightly different
+starting value. Each motor is different and will only start at a slightly
+different value.
 
-Maar ook de batterij kan hier invloed op hebben. Het kan dus zijn dat de waardes
-ook anders zijn als de batterij minder vol is.
+But also the battery power might be of influency. It could be that these
+values change depending on the state (full or empty) of the battery.
 
 .. admonition:: TIP
    :class: hint
 
-   Het beste is dus om te zorgen dat je batterij altijd goed opgeladen is.
-
+   It is better to make sure your battery is always fully powered.
 
 6
 ---
@@ -207,10 +198,10 @@ ook anders zijn als de batterij minder vol is.
 
    .. grid-item::
 
-      Uiteraard kan je de robot ook zelf programmeren. Hiervoor kan je naar het 
-      ‘Programmeren’ tabblad. Bij ‘acties’ zie je ‘Zet snelheid van motor links 
-      op 0’ staan. Deze kan je gebruiken om de robot te laten rijden.
-
+      Of course there is also a way of programming the robot. This is 
+      where we need the 'Programming' tab. Under 'actions' you will 
+      see the 'Set speed of left motor to 0'. You can use this one to
+      make the robot move.
 
    .. grid-item::
 
@@ -239,8 +230,8 @@ ook anders zijn als de batterij minder vol is.
 
    .. grid-item::
 
-      Als je tevreden bent over wat je gemaakt hebt kan je de robot laten doen wat daar 
-      staat door op de ‘play’ knop te drukken. De robot gaat dan als het goed is bewegen.
+      As soon a you want to test your code, you can press the 'play' button. The robot 
+      should now move.
 
    .. grid-item::
 
@@ -250,8 +241,8 @@ ook anders zijn als de batterij minder vol is.
 
 .. dropdown:: :fa:`question-circle` Help
 
-   - Als de robot niet rijdt:
-      - Dat klopt en wordt uitgelegd in de volgende stap.
+   - My robot is not moving:
+      - Please have a look at the next step.
 
 8
 ---
@@ -261,10 +252,10 @@ ook anders zijn als de batterij minder vol is.
 
    .. grid-item::
 
-      Als je de robot het programma nu uit laat voeren zal je merken dat de robot 
-      niet echt vooruit komt. Dit komt omdat we de robot haar motoren laten stoppen 
-      zodra het programma klaar is. Met moeten dus nog tegen de robot zeggen dat ze 
-      niet meteen hoeft te stoppen.
+      As soon as you are asking the robot to run the code you will see that the robot
+      did not actually move. This is because we make the robot stop moving as soon 
+      as the program finished. So we have to tell the program it should not stop right
+      away.
 
    .. grid-item::
 
@@ -275,7 +266,6 @@ ook anders zijn als de batterij minder vol is.
 9
 ---
 
-**Opdracht:** Probeer nu de robot zo te programmeren zodat ze een vierkantje gaat 
-rijden. Of een rondje?
+**Assignment:** Try to program the robot to drive a square. Or a cicrle?
 
-Met ‘wacht x seconden’ kan je ook de grootte van het vierkant veranderen.
+You can use the ‘wait x seconds’ to change the size of the square.

@@ -3,14 +3,19 @@
   width: 100%;
 }
 
-/* Remove secondary menu in mobile version */
-.bd-toc {
-  display: none !important;
-}
-
 /* Fix for dark mode */
 body {
   background-color: var(--pst-color-background) !important; 
+}
+
+#rtd-footer-container{
+  display: none !important;
+}
+
+/* Fix for the scrollbar issue in books theme: */
+/* https://github.com/executablebooks/sphinx-book-theme/issues/732 */
+.theme-switch-button{
+  display: none !important;
 }
 
 /* Needed for custom next-prev section thing */
@@ -18,7 +23,43 @@ section section:not(:nth-child(3)) {
   display: none;
 }
 
-/* No clue why it was hidden */
-/* .prev-next-footer {
-  display: none;
-} */
+/* Fixes */
+
+header{
+  display: none !important;
+}
+
+button.search-button,
+button.secondary-toggle{
+  display: none !important;
+}
+
+/* Custom layout */
+
+h1{
+  text-transform: uppercase;
+  color: #9db7be !important;
+}
+
+.headerlink{
+  display: none !important;
+}
+
+/* Custom menu */
+
+.title{
+  text-transform: uppercase;
+}
+
+li.current{
+  background-color: #9db7be;
+}
+
+a.current{
+  color: white !important;
+}
+
+.bd-docs-nav{
+  font-weight: bold;
+}
+
