@@ -1,0 +1,23 @@
+{% extends "!layout.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <link rel="manifest" href="{{ pathto('../manifest.webmanifest', 1) }}">
+  <link rel="icon" href="{{ pathto('../_static/icons/mirte-icon-512.png', 1) }}">
+  <meta name="theme-color" content="#4a90e2">
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script>
+
+    window.addEventListener("appinstalled", () => {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('{{ pathto('../sw.js', 1) }}')
+          .then(reg => console.log('Service Worker registered:', reg))
+          .catch(err => console.error('Service Worker registration failed:', err));
+      }
+    });
+
+  </script>
+{% endblock %}
