@@ -27,7 +27,9 @@ for file_path in BUILD_DIR.rglob("*"):
         # Compute the relative URL path from build dir
         relative_path = file_path.relative_to(BUILD_DIR).as_posix()
         url = BASE_URL + relative_path
-        urls.append(url)
+        urls.append("." + url)
+
+print(urls);
 
 # Save to _static so it gets copied by Sphinx
 output_path = BUILD_DIR / "_static" / "precache-files.json"
