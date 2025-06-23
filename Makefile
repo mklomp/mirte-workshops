@@ -17,6 +17,7 @@ help:
 build_lang:
 	python scripts/build.py
 	python scripts/dedup.py
+	python scripts/create_pwa.py
 # python will fail if not in venv
 
 
