@@ -32,6 +32,7 @@ jobs:
           ln -s ../../../conf.py .
           ln -s ../../../_static .
           ln -s ../../modules .
+          cd ../../../
           DIR=pioneer_line_follow make html
       - name: Test external urls
         run: |
