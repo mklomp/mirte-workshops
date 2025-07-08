@@ -5,9 +5,9 @@
 # from the environment for the first two.
 SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
-SOURCEDIR     = .
+SOURCEDIR     = ./docs/workshops/pioneer_line_follow
 BUILDDIR      = _build
-DIRS          = nlt pioneer
+DIRS          = nlt pioneer_line_follow
 
 # Put it first so that "make" without argument is like "make help".
 help:
