@@ -5,6 +5,8 @@ parser.add_argument('--dir', required=True, help='Directory to the workshop dire
 parser.add_argument('--lang', required=False, help='Language to build (default: all)')
 args = parser.parse_args()
 
+print("DIrectory:" + args.dir)
+
 # Add symlinks to all the modules
 os.system(f'ln -s ../../modules ./docs/workshops/{args.dir}')
 os.system(f'ln -s ../../../_static ./docs/workshops/{args.dir}')
