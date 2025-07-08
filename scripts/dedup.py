@@ -3,7 +3,11 @@
 
 # open all .html files in build/html/en and change "images/" to "../images/" and "_static/" to "../_static/"
 
-import os, json, shutil
+import os, json, shutil, argparse
+
+parser = argparse.ArgumentParser(description="Dedup script")
+parser.add_argument('--dir', required=True, help='Directory to the workshop directory (located in docs/workshops) to build')
+args = parser.parse_args()
 
 script_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -14,7 +18,7 @@ with open(os.path.abspath( f'{script_path}/../_static/js/articles.json')) as fil
 
 def dedup_one(lang, default_lang = articles_data["default_language"]):
 
-    folder_path = os.path.abspath( f'{script_path}/../_build/html/{lang}')
+    folder_path = os.path.abspath( f'{script_path}/../_build/html/{lang}/{args.dir}')
     html_files = []
     for root, dirs, files in list(os.walk(folder_path)):
         for file in files:
@@ -26,7 +30,7 @@ def dedup_one(lang, default_lang = articles_data["default_language"]):
     for file in html_files:
         with open(file, 'r+') as f:
             t = f.read()
-            t = t.replace("_images/", f"../{default_lang}/_images/").replace("_static/", f"../{default_lang}/_static/")
+            t = t.replace("_images/", f"../../{default_lang}/{args.dir}/_images/").replace("_static/", f"../../{default_lang}/{args.dir}/_static/")
             f.seek(0)
             f.write(t)
             f.truncate()

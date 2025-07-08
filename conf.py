@@ -47,36 +47,48 @@ for lang_opt in articles_settings["languages"]:
         lang_default_long = lang_opt["long"]
 
 try:
-    with open(f'docs/banners/banner.{lang}.rst') as f:
+    with open(f'modules/banners/banner.{lang}.rst') as f:
         banner_text = f.read()
 except:
     print(f"No banner found for {lang}, this is required")
     exit(1)
 
+def getArticles():
+    articles = []
+    for dirpath, dirnames, filenames in os.walk('.'):
+        for filename in filenames:
+            if filename.endswith('.rst'):
+                full_path = os.path.join(dirpath, filename)
+                if os.path.normpath(full_path) != os.path.normpath('./index.rst') and full_path.count(".") == 3:
+                    articles.append(full_path[2:-7])
+    unique_articles = list(set(articles))
+    return unique_articles
 
 # For multi-lang, copy article.{lang}.rst to article.rst
-for article in articles_settings["articles"]:
-    try:
-        # check if file exists
-        translated_file = f'docs/{article}/{article}.{lang}.rst'
-        put_warning = False
-        if(not os.path.exists(translated_file)):
-            print(f"missing article file for {article} in {lang}") # TODO: add banner
-            translated_file = f'docs/{article}/{article}.{lang_default}.rst'
-            put_warning = True
-        
-        with open(translated_file) as f_lang:
-            with open(f'docs/{article}/{article}.rst', 'w') as f_dest:
-                article_content = f_lang.read()
-                if(put_warning):
-                    if(not ".. WARNING_SPOT" in article_content):
-                        print("missing WARNING_SPOT place in " + article)
-                        exit(1)
-                    article_content = article_content.replace(".. WARNING_SPOT\n", banner_text.replace("{github_user}", github_user).replace("{github_repo}", github_repo))
-                f_dest.write(article_content)
-    except Exception as e:
-        print(e)
-        print("missing article file for " + article)
+def copyArticles(articles):
+    for article in articles:
+        try:
+            # check if file exists
+            translated_file = f'{article}.{lang}.rst'
+            put_warning = False
+            if(not os.path.exists(translated_file)):
+                print(f"missing article file for {article} in {lang}") # TODO: add banner
+                translated_file = f'{article}.{lang_default}.rst'
+                put_warning = True
+            
+            with open(translated_file) as f_lang:
+                with open(f'{article}.rst', 'w') as f_dest:
+                    article_content = f_lang.read()
+                    if(put_warning):
+                        if(not ".. WARNING_SPOT" in article_content):
+                            print("missing WARNING_SPOT place in " + article)
+                            exit(1)
+                        article_content = article_content.replace(".. WARNING_SPOT\n", banner_text.replace("{github_user}", github_user).replace("{github_repo}", github_repo))
+                    f_dest.write(article_content)
+        except Exception as e:
+            print(e)
+            print("missing article file for " + article)
+
 
 
 # -- General configuration ---------------------------------------------------
@@ -161,6 +173,17 @@ html_theme_options = {
 
 linkcheck_ignore = [r'^http://$', r'^http://mirte.local.*', r'.*localhost.*', r'.*192.168.4.*']
 linkcheck_anchors_ignore_for_url = [
-   
+
 ]
 language = lang
+
+def remove_copied_files(app, exception):
+    for file in app.articles:
+        os.remove("./" + file + ".rst")
+
+
+def setup(app):
+    app.articles = getArticles()
+    copyArticles(app.articles)
+    app.connect('build-finished', remove_copied_files)
+
