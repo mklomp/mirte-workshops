@@ -82,8 +82,8 @@ def copyArticles(articles):
                     if(put_warning):
                         if(not ".. WARNING_SPOT" in article_content):
                             print("missing WARNING_SPOT place in " + article)
-                            exit(1)
-                        article_content = article_content.replace(".. WARNING_SPOT\n", banner_text.replace("{github_user}", github_user).replace("{github_repo}", github_repo))
+                        else:
+                            article_content = article_content.replace(".. WARNING_SPOT\n", banner_text.replace("{github_user}", github_user).replace("{github_repo}", github_repo))
                     f_dest.write(article_content)
         except Exception as e:
             print(e)
