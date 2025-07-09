@@ -30,7 +30,7 @@ def dedup_one(lang, default_lang = articles_data["default_language"]):
     for file in html_files:
         with open(file, 'r+') as f:
             t = f.read()
-            t = t.replace("_images/", f"../../{default_lang}/{args.dir}/_images/").replace("_static/", f"../../{default_lang}/{args.dir}/_static/")
+            t = t.replace("_images/", f"../../../{default_lang}/{args.dir}/_images/").replace("_static/", f"../../../{default_lang}/{args.dir}/_static/")
             f.seek(0)
             f.write(t)
             f.truncate()

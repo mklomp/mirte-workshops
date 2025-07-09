@@ -5,13 +5,12 @@ parser.add_argument('--dir', required=True, help='Directory to the workshop dire
 parser.add_argument('--lang', required=False, help='Language to build (default: all)')
 args = parser.parse_args()
 
-print("DIrectory:" + args.dir)
-
 # Add symlinks to all the modules
-os.system(f'ln -s ../../modules ./docs/workshops/{args.dir}')
-os.system(f'ln -s ../../../_static ./docs/workshops/{args.dir}')
-os.system(f'ln -s ../../../_templates ./docs/workshops/{args.dir}')
-os.system(f'ln -s ../../../conf.py ./docs/workshops/{args.dir}')
+cwd = os.getcwd()
+os.system(f'ln -s {cwd}/docs/modules ./docs/{args.dir}')
+os.system(f'ln -s {cwd}/_static ./docs/{args.dir}')
+os.system(f'ln -s {cwd}/_templates ./docs/{args.dir}')
+os.system(f'ln -s {cwd}/conf.py ./docs/{args.dir}')
 #TODO: include conf.py locally so author can be overridden
 
 
@@ -25,12 +24,12 @@ else:
     data['languages'] = [{'short': args.lang}]
 
 for lang in data['languages']:
-    os.system(f'sphinx-build "./docs/workshops/{args.dir}" "_build/html/{lang["short"]}/{args.dir}" -t lang_{lang["short"]}')
+    os.system(f'sphinx-build "./docs/{args.dir}" "_build/html/{lang["short"]}/{args.dir}" -t lang_{lang["short"]}')
 
 shutil.copyfile('scripts/index.html', '_build/html/index.html')
 
 # Remove symlink to all modules
-os.system(f'rm ./docs/workshops/{args.dir}/modules')
-os.system(f'rm ./docs/workshops/{args.dir}/_static')
-os.system(f'rm ./docs/workshops/{args.dir}/_templates')
-os.system(f'rm ./docs/workshops/{args.dir}/conf.py')
+os.system(f'rm ./docs/{args.dir}/modules')
+os.system(f'rm ./docs/{args.dir}/_static')
+os.system(f'rm ./docs/{args.dir}/_templates')
+os.system(f'rm ./docs/{args.dir}/conf.py')

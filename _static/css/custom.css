@@ -63,3 +63,8 @@ a.current{
   font-weight: bold;
 }
 
+.disabled-card {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+}
