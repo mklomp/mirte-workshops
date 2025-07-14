@@ -51,7 +51,6 @@ try:
         banner_text = f.read()
 except:
     print(f"No banner found for {lang}, this is required")
-    exit(1)
 
 def getArticles():
     articles = []
