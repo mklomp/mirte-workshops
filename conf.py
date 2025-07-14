@@ -139,7 +139,6 @@ html_css_files = [
 
 ## For Book Theme
 html_context = {
-   "mode": "darky",
    "github_repo": "mirte-workshops",
    "github_user": "mirte-robot"
 }

@@ -6,15 +6,10 @@
 /* Fix for dark mode */
 body {
   background-color: var(--pst-color-background) !important; 
+  color: var(--pst-color-text-base) !important; 
 }
 
 #rtd-footer-container{
-  display: none !important;
-}
-
-/* Fix for the scrollbar issue in books theme: */
-/* https://github.com/executablebooks/sphinx-book-theme/issues/732 */
-.theme-switch-button{
   display: none !important;
 }
 
@@ -49,6 +44,10 @@ h1{
 
 .title{
   text-transform: uppercase;
+}
+
+nav.bd-links .current>a{
+  box-shadow: unset;
 }
 
 li.current{

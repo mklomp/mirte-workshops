@@ -6,3 +6,4 @@
     with the robot.
     +++
     :octicon:`clock;1em;sd-text-info` 4 x 1 hour
+    :octicon:`globe;1em;sd-text-info` Only in Dutch
