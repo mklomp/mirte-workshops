@@ -1,13 +1,13 @@
-NLT Documentation
-=================
-
 .. toctree::
-   :maxdepth: 0	
+   :maxdepth: 1
+   :hidden:	
    :caption: NLT
-   :hidden:
 
    self
-   sensoren/sensoren
-   modules/line_sensor/line_sensor
-
-Welkom bij de NLT module Robotica.
+   intro/intro
+   electronics/electronics
+   actuators/actuators
+   programming/programming
+   sensors/sensors
+   algorithms/algorithms
+   design/design

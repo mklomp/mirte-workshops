@@ -1,4 +1,4 @@
-Please select the MIRTE robot you are using:
+Selecteer de MIRTE robot die je gebruikt:
 
 .. grid:: 2
 

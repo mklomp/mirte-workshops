@@ -23,8 +23,11 @@ if (not args.lang):
 else:
     data['languages'] = [{'short': args.lang}]
 
+# the homepage should be placed at {lang}/ instead of {lang}/homepage
+dir = args.dir if args.dir != "homepage" else ""
+
 for lang in data['languages']:
-    os.system(f'sphinx-build "./docs/{args.dir}" "_build/html/{lang["short"]}/{args.dir}" -t lang_{lang["short"]}')
+    os.system(f'sphinx-build "./docs/{args.dir}" "_build/html/{lang["short"]}/{dir}" -t lang_{lang["short"]}')
 
 shutil.copyfile('scripts/index.html', '_build/html/index.html')
 

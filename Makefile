@@ -7,7 +7,7 @@ SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = ./docs/workshops/pioneer_line_follow
 BUILDDIR      = _build
-DIRS          = nlt pioneer_line_follow
+DIRS          = workshops/nlt workshops/pioneer_line_follow homepage
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -18,7 +18,7 @@ help:
 .PHONY: build_en
 build_lang:
 	python scripts/build.py --dir=$(DIR)
-	python scripts/dedup.py --dir=$(DIR)
+#	python scripts/dedup.py --dir=$(DIR)
 	python scripts/create_pwa.py
 # python will fail if not in venv
 
