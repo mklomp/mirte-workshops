@@ -7,7 +7,7 @@ SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = ./docs/workshops/pioneer_line_follow
 BUILDDIR      = _build
-DIRS          = workshops/nlt workshops/pioneer_line_follow homepage
+DIRS          = workshops/nlt workshops/pioneer_line_follow homepage workshops/assemble
 
 # Put it first so that "make" without argument is like "make help".
 help:

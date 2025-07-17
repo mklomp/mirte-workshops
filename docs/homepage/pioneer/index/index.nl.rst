@@ -1,7 +1,15 @@
+.. card:: Robot bouwen
+    :link: ../workshops/assemble
+
+    In deze workshop ga je de robot bouwen. Daarna kan je aan de slag
+    met de andere workshops.
+    +++
+    :octicon:`clock;1em;sd-text-info` 1 uur 
+
 .. card:: Lijn volger
     :link: ../workshops/pioneer_line_follow
 
-    In deze workshop ga je de robot bouwen en leer je hoe je deze kan 
+    In deze workshop leer je hoe je de MIRTE Pioneer robot kan 
     programmere (Python of Blockly) om de sensorwaardes uit te lezen
     en zodoende een zwarte lijn te volgen.
     +++

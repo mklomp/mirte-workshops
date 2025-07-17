@@ -1,3 +1,11 @@
+.. card:: Assemble
+    :link: ../workshops/assemble
+
+    In this workshop you will build the robot. You can continue
+    with other workshops after completing this one.
+    +++
+    :octicon:`clock;1em;sd-text-info` 1 hour 
+
 .. card:: Line follower
     :link: ../workshops/pioneer_line_follow
 
