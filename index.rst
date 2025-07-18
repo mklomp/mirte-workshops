@@ -13,4 +13,4 @@
    docs/loops_functions/loops_functions
    docs/follow_line_1_sensor/follow_line_1_sensor
 
-.. include:: docs/index/index.rst
+.. include:: docs/modules/index/index.rst

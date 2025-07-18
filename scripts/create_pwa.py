@@ -29,4 +29,4 @@ with output_path.open("w") as f:
 # Copy PWA items to root
 shutil.copyfile('scripts/sw.js', '_build/html/sw.js')
 shutil.copyfile('scripts/manifest.webmanifest', '_build/html/manifest.webmanifest')
-shutil.copytree('_static/icons', '_build/html/_static/icons')
+#shutil.copytree('_static/icons', '_build/html/_static/icons')
