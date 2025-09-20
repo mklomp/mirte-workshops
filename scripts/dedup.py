@@ -40,5 +40,5 @@ def dedup_one(lang, default_lang = articles_data["default_language"]):
     shutil.rmtree(f'{folder_path}/_static')
 
 for lang in articles_data["languages"]:
-    if(lang["short"] != articles_data["default_language"]):
+    if (lang["short"] != articles_data["default_language"]) and args.dir:
         dedup_one(lang["short"])
