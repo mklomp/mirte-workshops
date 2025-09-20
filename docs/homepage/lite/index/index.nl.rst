@@ -1,5 +1,3 @@
-:orphan:
-
 .. card:: Ontwerp en Ontwijk
     :link: https://slides.mirte.org/lite
 

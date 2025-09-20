@@ -1,5 +1,3 @@
-:orphan:
-
 .. card:: Assemble
     :link: ../workshops/assemble
 
@@ -16,6 +14,13 @@
     +++
     :octicon:`clock;1em;sd-text-info` 3 hour 
 
+.. card:: ROS2 introduction
+    :link: ../workshops/ros2_intro
+
+    In this workshop you will learn about the basic concepts of ROS2
+    and program the robot using ROS2 topics and services.
+    +++
+    :octicon:`clock;1em;sd-text-info` 1 hour 
 
 .. .. card:: NLT module
     :link: ../workshops/nlt
