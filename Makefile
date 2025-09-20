@@ -18,7 +18,7 @@ help:
 .PHONY: build_en
 build_lang:
 	python3 scripts/build.py --dir=$(DIR)
-#	python3 scripts/dedup.py --dir=$(DIR)
+	python3 scripts/dedup.py --dir=$(DIR)
 	python3 scripts/create_pwa.py
 # python will fail if not in venv
 
