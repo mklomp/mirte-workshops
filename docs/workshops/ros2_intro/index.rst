@@ -17,19 +17,26 @@
 Welcome
 =======
 
-After this workshop you will be able to understand the basic concepts of ROS2, and 
+In this training we will use the `MIRTE Pioneer <https://mirte.org/>`_ 
+robot. After this workshop you will be able to understand the basic concepts of ROS2, and 
 program a robot using ROS2 with a minimal setup.
 
 **Prerequisites**
 
-These tutorials will assume you have a computer with a VSCode 
-installed. If that is not the case, please follow the 
-instructions below to set this up:
+.. tab-set::
 
-- `Installing VSCode <https://code.visualstudio.com/download>`_
+   .. tab-item:: VSCode on computer
 
-In this training we will use the `MIRTE Pioneer <https://mirte.org/>`_ 
-robot. 
+      If you have not installed VSCode yet, please do wo following the instructions below:
+
+      - `Installing VSCode <https://code.visualstudio.com/download>`_
+
+   .. tab-item:: VSCode on MIRTE
+
+      No need to install anything. But please note that developing on VSCode on the robot
+      might be a bit slow.
+
+
 
 **Context in right margin**
 

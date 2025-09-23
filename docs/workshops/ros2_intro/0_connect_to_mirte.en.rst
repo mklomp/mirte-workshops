@@ -13,15 +13,38 @@ instructions for the `Wireless Acces Point <https://docs.mirte.org/develop/doc/m
 to connect to your own MIRTE. The Unique ID is mentioned on
 the sticker on the robot.
 
-Note that we are now 'on the MIRTE robot', so everything we type will
-be executed on the robot. Moving our workspace to the robot is easy:
+.. tab-set::
 
-As soon as we are connected to the robot, we can 
-also connect VS code to the MIRTE robot. In VS code, connect to the MIRTE:
+   .. tab-item:: VSCode on computer
 
-- In VS code press F1
-- Type Remote-SSH > Connect to Host...
-- Type: 192.168.42.1
+      As soon as we are connected to the robot, we can also connect VS code to the
+      MIRTE robot. If it is the first time you try to do this, you need to make
+      sure that you have changed the password of the mirte user on the robot.
+
+      This can be done by opening a terminal (or command prompt in Windows) and 
+      ssh into your robot:
+
+      .. code-block:: console
+
+         $ ssh mirte@192.168.42.1
+
+      It will ask you for a password (note: it will not show that you typed), And
+      ask for a new password twice. Please note that whis will also be your new 
+      wifi password.
+      
+      Now that we have set this we can connect VScode to the MIRTE:
+
+      - In VS code press F1
+      - Type Remote-SSH > Connect to Host...
+      - Type: mirte@192.168.42.1
+
+   .. tab-item:: VSCode on MIRTE
+
+      You can also just use the VSCode already on the MIRTE robot. This is convenient
+      for small test-setups, but might be a bit slow for actual development. You
+      can access VSCode by opening teh following link in a browser:
+
+      http://mirte.local/code/?folder=/home/mirte/
 
 In order to type command, you need to open a terminal in VS code
 (View > Terminal).
