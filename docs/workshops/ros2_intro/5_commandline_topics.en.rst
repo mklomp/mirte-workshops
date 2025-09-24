@@ -16,6 +16,14 @@ So we first need to start that node:
 
    mirte$ ros2 launch mirte_telemetrix telemetrix.launch
 
+.. admonition:: info
+
+  This node migth already be running. You can check this with:
+
+  .. code-block:: console
+
+     $ ros2 node list
+
 As in the previous section, you can :abbr:`check which nodes are
 running (mirte$ ros2 node list)`, and confirm that the node is running.
 But you can also see the data from the ultrasonic sensors coming in:
@@ -39,7 +47,7 @@ But you can also see the data from the ultrasonic sensors coming in:
 
 .. code-block:: console
  
-   mirte$ ros2 topic echo /mirte/distance/left
+   mirte$ ros2 topic echo /io/distance/left
 
 At one of the lines, you can see the distance measured by the sensor in cm.
 You can also get some other information (like bandwidth used, update
