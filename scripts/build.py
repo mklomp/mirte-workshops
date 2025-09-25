@@ -1,4 +1,5 @@
 import json, os, shutil, argparse
+from pathlib import Path
 
 parser = argparse.ArgumentParser(description="Build script")
 parser.add_argument('--dir', required=True, help='Directory to the workshop directory (located in docs/workshops) to build')
@@ -28,7 +29,9 @@ dir = args.dir if args.dir != "homepage" else ""
 
 for lang in data['languages']:
     os.chdir(f'./docs/{args.dir}')
-    os.system(f'sphinx-build "." "{cwd}/_build/html/{lang["short"]}/{dir}" -t lang_{lang["short"]}')
+    found = any(f.suffixes == [f'.{lang["short"]}', '.rst'] for f in Path(".").rglob('*'))
+    if (found):
+        os.system(f'sphinx-build "." "{cwd}/_build/html/{lang["short"]}/{dir}" -t lang_{lang["short"]}')
     os.chdir(f'{cwd}')
 
 # Remove symlink to all modules
