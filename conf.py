@@ -95,7 +95,10 @@ def copyArticles(articles):
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinxcontrib.video', 'sphinx_design']
+extensions = ['sphinxcontrib.video', 'sphinx_design', 'metapensiero.sphinx.d2']
+
+d2_sketch = True
+d2_theme = 8
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
