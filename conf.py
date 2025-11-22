@@ -127,7 +127,7 @@ html_title = "Mirte Workshops"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_js_files = ['js/custom.js']
+html_js_files = ['js/custom.js', 'js/matomo.js']
 
 html_css_files = [
       "css/custom.css",
@@ -165,7 +165,8 @@ html_theme_options = {
     "use_issues_button": True,
     "use_edit_page_button": True,
     "use_fullscreen_button": False,
-    "secondary_sidebar_items": []
+    "secondary_sidebar_items": [],
+    "extra_footer": "<a href='https://mirte.org/privacy'>privacy</a>",
 }
 
 
