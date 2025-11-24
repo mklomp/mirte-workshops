@@ -15,28 +15,41 @@ Zoals is uitgelegd, is een robot zonder sensoren 'blind' en 'doof', maar een rob
 
 Opdracht:
 
+Robots voeren vaak autonoom een bepaalde taak uit. Het is echter meestal niet zichtbaar wat er in de robot gebeurt. Als de robot even stil staat weet je bijvoorbeeld niet of hij iets aan het 'zoeken' is met de sensoren of aan het 'nadenken' is. In deze opdracht gaan we actuatoren gebruiken om deze interne processen aan de gebruiker van de robot duidelijk te maken.
+
 Ontwerp een systeem voor een robot waarmee de robot de gebruiker inzicht kan geven in wat er in de robot gebeurt. Gebruik minimaal 3 verschillende actuatoren en 3 verschillende stukken informatie waar de robot de gebruiker over kan informeren. Maak een ontwerp op een A4 papier en presenteer jullie idee in 1 minuut aan 3 andere groepen.
-Scientific approach?
+
+Maak bij deze opdracht gebruik van de scientific approach (linkje). In dit geval doe je de observatie aan de hand van het hierboven geschetste 'probleem' wat zich met robots voordoet. Daarna doorloop je de volgende 2 stappen van de scientific approach. In plaats van een experiment te doen, presenteer en bediscuseer je jullie plan met andere groepen. Kijk kritisch naar elkaars ontwerp en kijk of je valkuilen of verbeterpunten kunt ontdekken. Daarna doe je een korte analyse en sluit je af met een conclusie.
+
+TODO maak werkblad hierbij
 
 
 Motoren (DC en Servo)
 ---------------------
 
-Vorige les heeft een overzicht gegeven van verschillende vormen van actuatie en beschreven waarom een robot actuatoren nodig heeft. Deze les gaat in op de belangrijkste actuatoren voor robots, namelijk motoren. Twee veelgebruikte motoren worden behandeld, namelijk de Direct Current Motor (DC motor) en de Servo Motor.
+Vorige les heeft een overzicht gegeven van verschillende vormen van actuatie en beschreven waarom een robot actuatoren nodig heeft. Deze les gaat in op de belangrijkste actuatoren voor robots, namelijk motoren. Twee veelgebruikte motoren worden behandeld, namelijk de Direct Current Motor (DC motor) en de Servo.
 
 Een DC motor wordt gebruikt vanwege zijn continue rotatie. Dit betekent dat als je een DC Motor aanzet, hij rond zal blijven draaien. Dit is nodig om bijvoorbeeld een wiel voor een rijdende robot aan te sturen. Door het elektrische vermogen wat de motor ingaat aan te passen, kan de DC motor harder of zachter draaien.
 
-Een Servo motor wordt gebruikt om heel precies een bepaalde orientatie te krijgen. De Servo motor kan bijvoorbeeld bewegen tussen 0 en 180 graden en kan heel precies naar een hoek van 35 graden worden gestuurd. Dit wordt bijvoorbeeld gebruikt om robotarmen naar specifieke posities te sturen en een grijper open en dicht te doen. Door het elektrische vermogen wat de motor ingaat aan te passen, kan de Servo meer kracht (torque) uitoefenen en zal deze sneller van positie kunnen wisselen (dit zal de tijd die het kost om van bijvoorbeeld 0 naar 50 graden te gaan, versnellen).
+Een Servo wordt gebruikt om heel precies een bepaalde orientatie te krijgen. De Servo kan bijvoorbeeld bewegen tussen 0 en 180 graden en kan heel precies naar een hoek van 35 graden worden gestuurd. Dit wordt bijvoorbeeld gebruikt om robotarmen naar specifieke posities te sturen en een grijper open en dicht te doen. Door het elektrische vermogen wat de motor ingaat aan te passen, kan de Servo meer kracht (torque) uitoefenen en zal deze sneller van positie kunnen wisselen (dit zal de tijd die het kost om van bijvoorbeeld 0 naar 50 graden te gaan, versnellen).
 
 Om het verschil tussen een DC motor en een servo nog wat duidelijker te maken, is het goed om na te denken wat er zou gebeuren als we in bovenstaande voorbeelden de andere soort motor gebruiken.
 Als een servo wordt gebruikt om een wiel aan te sturen van een rijdende robot, kan dit wiel draaien van 0 tot 180 graden en terug. Dit betekent dat de robot niet zou kunnen rijden, maar alleen een beetje heen en weer rolt op zijn plek. Als we daarentegen een DC motor zouden gebruiken om een robotarm aan te sturen, zou de arm constant rondjes blijven draaien. Naast dat dit niet praktisch is, is zo'n rondvliegende arm ook nog eens heel gevaarlijk. Het is dus belangrijk om het verschil tussen deze twee motoren te kunnen begrijpen om ze in de juiste toepassing te kunnen gebruiken.
 
-Opdracht: Gebruik de servo en DC Motor. Stuur ze aan en merk de verschillen op.
-Opdracht: Zorg dat beide wielen dezelfde kant op draaien. Gebruik de Scientific Approach om deze opdracht gestructureerd aan te pakken.
-Opdracht: Iets met bepalen van snelheid en acceleratie van de robot? *Hiermee kunnen ze uiteindelijk een obstakel ontwijken (waarbij ze van de lijn af moeten),om daarna weer terug op de lijn te komen.*
-Opdracht: Ontwerp een grijper voor jouw robot en bedenk hoe deze robot gaat werken met 1 of 2 servo motoren. *afhankelijk van of de school maakmogelijkheden heeft*
+
+Sluit de servo en de dc motor aan. 
+
+1. Gebruik de scientific approach om vast te stellen of de wielen van de robot worden aangestuurd met een servo motor of met een dc motor (en schrijf op waarom).
+
+2. Sluit nu allebei de wielen aan op de juiste motoren en monteer ze op de robot (als je dit nog niet hebt gedaan). Zet allebei de motoren aan en stel vast of ze de goede kant op draaien. Gebruik de scientific approach om ervoor te zorgen dat de wielen uiteindelijk de juiste kant op draaien corresponderend met de gegeven instructie (bijvoorbeeld, instructie: rechtdoor, allebei de wielen zorgen dat de robot rechtdoor rijdt).
+
+3. Nu allebei de wielen van de robot dezelfde kant op draaien, kunnen we de snelheid en acceleratie van de robot gaan bepalen. Hiervoor gebruiken we wederom de scientific approach.
+Voeg tekstblokjes toe 'hoe was het ook alweer' voor snelheid en acceleratie 
+-> uiteindelijk hiermee een stukje onderbroken lijn overbruggen?
+
+4. Ontwerp een grijper voor jouw robot. Afhankelijk van het materiaal dat voor jou beschikbaar is, maak je gebruik van 1 of 2 servo's. Ontwerp de grijper zo, dat de robot een object kan grijpen en op een later moment ook weer los kan laten. 
 
 
-
-
+TODO: maak werkbladen hierbij
+TODO: Opdracht 3 aanvullen
 
