@@ -1,13 +1,14 @@
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :hidden:	
    :caption: NLT
 
    self
+   teachers_manual
    intro/intro
    electronics/electronics
    actuators/actuators
-   programming/programming
+   programming/index
    sensors/sensors
    algorithms/algorithms
    design/design
