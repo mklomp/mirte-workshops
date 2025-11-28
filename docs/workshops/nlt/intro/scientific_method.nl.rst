@@ -7,6 +7,36 @@ Het ontwerpen van robots is ingewikkeld en complex. Hierover leer je meer in de 
 
 Bij het gebruik van de Scientific Approach, worden elke keer dezelfde stappen doorlopen om kennis op te doen. Het proces begint met een bepaalde observatie. Dit gaat in de robotica vaak gepaard met een bepaalde verwachting: ik verwacht dat mijn robot x doet, maar ik observeer dat mijn robot y doet. Daarop volgt het formuleren van een onderzoeksvraag aan de hand van de observatie die is gedaan. In dit geval: Waarom vertoont mijn robot gedrag y, terwijl ik verwacht dat hij gedrag x vertoont. Dit wordt opgevolgd door het opstellen van een hypothese. Een hypothese beschrijft de verwachting die wordt opgesteld voordat er daadwerkelijk onderzoek wordt gedaan. In dit geval is de hypothese dat er een fout is gemaakt in een deel van de code die gedrag x beschrijft, waardoor gedrag y tot uiting komt. Hierna worden experimenten uitgevoerd om te controleren of de hypothese die is gedaan klopt. Dit moet op een gestructureerde manier worden gedaan, om er zeker van te zijn dat de hypothese daadwerkelijk klopt. Vaak wordt per experiment 1 variabele veranderd en de rest gelijk gehouden, zodat naderhand precies bekeken kan worden wat het effect is van die verandering en of de hypothese dus inderdaad klopt. Bij de robot in kwestie testen we eerst wat er de robot doet als we de code voor het vertonen van gedrag x helemaal niet uitvoeren. Daarna testen we 1 voor 1 de stukjes code die gedrag x zouden moeten opmaken. Tot slot doen  we nog de volledige uitvoering van de code van gedrag x. Na het expirimenteren wordt de verzamelde data geanalyseerd. Vaak is het nodig de data weer te geven in tabellen of grafieken, om zo beter patronen of verschillen te kunnen ontdekken. In het voorbeeld .... Na de analyse wordt er gecheckt of de vooraf opgestelde hypothese juist was. In het geval dat de hypothese juist was, is de onderzoeksvraag die was opgesteld dus beantwoord en is hiermee het onderzoek voltooid. Is de hypothese onjuist bevonden, is er waarschijnlijk verder onderzoek nodig. In beide gevallen wordt er altijd een conclusie getrokken en worden resultaten gerapporteerd en mogelijk gepubliseerd. In het geval van de robot is het probleem in het gedrag gevonden, correct geidentificeerd en kan het nu worden verholpen. Daarna moet er worden getest of de 'nieuwe oplossing' ook daadwerkelijk het probleem oplost. Hiervoor kan weer opnieuw de scientific approach worden doorlopen. Aangezien dit soort onderzoeken elkaar vaak opvolgen en uit experimenten vaak weer nieuwe observaties of vragen naar boven komen, kan de scientific approach ook als een cirkel worden weergegeven, waarbij de conclusie weer leidt tot een nieuwe observatie.
 
+
+.. d2::
+
+	formulate question: {
+	1: observe
+	2: question\n (what is wrong)
+	1 -> 2
+	}
+	formulate hypothesis: {
+	1: do you have a(nother) hypothesis?
+	2: research \n(did someone else run into this problem?)
+	3: hypothesis
+	1 -> 2: no
+	1 -> 3: yes
+	2 -> 3
+	}
+	test hypothesis: {
+	1: do experiment
+	2: analyze data
+	3: draw conclusion
+	1 -> 2 -> 3
+	}
+
+	formulate question.2 -> formulate hypothesis.1
+	formulate hypothesis.3 -> test hypothesis.1
+	test hypothesis.3 -> report result \n (share insights): solved
+	test hypothesis.3 -> formulate hypothesis.1: not solved
+
+
+
 -> Voeg toe een afbeelding van de scientific approach en een afbeelding die het voorbeeld uitbeeldt.
 -> Voorbeeld is nog niet zo sterk 
 
