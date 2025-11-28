@@ -5,7 +5,7 @@
 
    self
    teachers_manual
-   intro/intro
+   intro/index
    electronics/electronics
    actuators/actuators
    programming/index
