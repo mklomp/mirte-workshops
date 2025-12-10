@@ -137,6 +137,8 @@ html_css_files = [
       "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css",
 ]
 
+html_favicon = "_static/favicon.png"
+
 ## For Book Theme
 html_context = {
    "github_repo": "mirte-workshops",
