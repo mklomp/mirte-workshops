@@ -8,6 +8,8 @@ args = parser.parse_args()
 
 # Add symlinks to all the modules
 cwd = os.getcwd()
+
+# @mklomp: TODO deze ook aanpassen voor Windows
 os.system(f'ln -s {cwd}/docs/modules ./docs/{args.dir}')
 os.system(f'ln -s {cwd}/_static ./docs/{args.dir}')
 os.system(f'ln -s {cwd}/_templates ./docs/{args.dir}')
@@ -35,6 +37,8 @@ for lang in data['languages']:
     os.chdir(f'{cwd}')
 
 # Remove symlink to all modules
+
+# @mklomp: TODO deze ook aanpassen voor Windows
 os.system(f'rm ./docs/{args.dir}/modules')
 os.system(f'rm ./docs/{args.dir}/_static')
 os.system(f'rm ./docs/{args.dir}/_templates')
